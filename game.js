@@ -151,7 +151,7 @@ let currentOrganIndex = 0;
 let coins = 0;
 let shovelLevel = 1;
 let radarOwned = false;
-let instantDigOwned = false;
+let instantDigOwned = true;
 let gridData = [];
 
 // ---------- ระบบเสียงเอฟเฟค ----------
@@ -590,7 +590,6 @@ const infoBoxEl = document.getElementById("infoBox");
 const nextOrganBtn = document.getElementById("nextOrganBtn");
 const buyShovelBtn = document.getElementById("buyShovel");
 const buyRadarBtn = document.getElementById("buyRadar");
-const buyInstantDigBtn = document.getElementById("buyInstantDig");
 const matchGrid = document.getElementById("matchGrid");
 const matchStatusEl = document.getElementById("matchStatus");
 const resetMatchBtn = document.getElementById("resetMatchBtn");
@@ -1876,30 +1875,7 @@ function attachShopEvents() {
     );
   });
 
-  buyInstantDigBtn.addEventListener("click", () => {
-    const cost = 30;
-    if (instantDigOwned) {
-      playClickSound();
-      showShopMessage("คุณปลดล็อกขุดคลิกเดียวแล้ว");
-      return;
-    }
-    if (coins < cost) {
-      playClickSound();
-      showShopMessage("เหรียญไม่พอสำหรับปลดล็อกขุดคลิกเดียว");
-      return;
-    }
-    playPurchaseSound();
-    coins -= cost;
-    instantDigOwned = true;
-    updateStatusBar();
-    createGrid(); // สร้างกริดใหม่เพื่อใช้ระบบคลิกเดียว
-    buyInstantDigBtn.disabled = true;
-    buyInstantDigBtn.innerHTML = `
-      ✅ ขุดคลิกเดียว (ปลดล็อกแล้ว)
-      <span class="btn-subtext">ไม่ต้องกดค้าง แค่คลิกครั้งเดียวก็ขุดได้</span>
-    `;
-    showShopMessage("ปลดล็อกขุดคลิกเดียวแล้ว! ตอนนี้สามารถคลิกครั้งเดียวเพื่อขุดได้เลย ไม่ต้องกดค้าง");
-  });
+  // ปุ่มปลดล็อกขุดคลิกเดียวถูกลบออกจาก UI: ฟีเจอร์เปิดใช้งานโดยดีฟอลต์
 }
 
 function applyRadarHints() {
