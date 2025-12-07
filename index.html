@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <title>Biologist</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="background-layer"></div>
+
+  <div class="game-frame">
+    <header class="game-header">
+      <div class="game-logo">🍽️</div>
+      <div>
+        <h1>ขุมทรัพย์สารอาหาร</h1>
+        <p class="subtitle">ผจญภัยในระบบย่อยอาหาร เก็บสารอาหารแลกไอเทมสุดเทพ!</p>
+      </div>
+    </header>
+
+    <section class="lobby" id="lobbySection">
+      <div class="lobby-title">เลือกโหมดการเล่น</div>
+      <div class="lobby-actions">
+        <button id="lobbyMainBtn" class="btn small">🪓 เกมขุดสารอาหาร</button>
+        <button id="lobbyMatchBtn" class="btn small btn-ghost">🧩 มินิเกมจับคู่ระบบสืบพันธุ์</button>
+        <button id="lobbyBloodBtn" class="btn small btn-ghost">🩸 มินิเกมระบบไหลเวียนเลือด</button>
+        <button id="lobbyBreathBtn" class="btn small btn-ghost">🫁 มินิเกมระบบหายใจ</button>
+      </div>
+    </section>
+
+    <section class="status-bar" id="statusBar">
+      <div class="status-pill" id="statusOrgan">
+        <span class="label">อวัยวะ</span>
+        <span id="organName" class="value">ปาก</span>
+      </div>
+      <div class="status-pill" id="statusCoins">
+        <span class="label">เหรียญสารอาหาร</span>
+        <span id="coins" class="value">0</span>
+      </div>
+      <div class="status-pill" id="statusShovel">
+        <span class="label">ระดับจอบ</span>
+        <span id="shovelLevel" class="value">1</span>
+      </div>
+    </section>
+
+    <main class="content">
+      <section class="panel grid-section" id="mainGamePanel">
+        <div class="panel-header">
+          <h2>พื้นที่ขุดสารอาหาร</h2>
+          <span class="panel-tag">ระบบย่อยอาหาร</span>
+        </div>
+        <div id="grid" class="grid"></div>
+        <button id="nextOrganBtn" class="btn btn-secondary" disabled>
+          ไปยังอวัยวะถัดไป ⮞
+        </button>
+      </section>
+
+      <section class="panel info-section" id="shopInfoPanel">
+        <div class="panel-header">
+          <h2>ข้อมูล & ร้านค้า</h2>
+          <span class="panel-tag panel-tag-blue">ความรู้</span>
+        </div>
+
+        <div id="infoBox" class="info-box">
+          คลิกช่องเพื่อขุดหา "สารอาหารสมบัติ" ในระบบย่อยอาหาร
+        </div>
+
+<h3 class="shop-title">ร้านค้าเสริมพลังย่อย</h3>
+<div class="shop">
+  <button id="buyShovel" class="btn">
+    🪓 อัปเกรดจอบ (30 เหรียญ)
+    <span class="btn-subtext">ลดจำนวนครั้งที่ต้องขุดให้ทะลุชั้นดิน</span>
+  </button>
+  <button id="buyRadar" class="btn">
+    📡 ซื้อเรดาร์ (20 เหรียญ)
+    <span class="btn-subtext">แสดงช่องที่มีโอกาสเจอสารอาหารดีด้วยกรอบเขียว</span>
+  </button>
+  <button id="buyInstantDig" class="btn">
+    🖱️ ปลดล็อกขุดคลิกเดียว (30 เหรียญ)
+    <span class="btn-subtext">ไม่ต้องกดค้าง 0.5วินาที คลิกเดียวก็ขุดได้</span>
+  </button>
+</div>
+      </section>
+
+      <section class="panel match-panel" id="matchGamePanel">
+        <div class="panel-header">
+          <h2>มินิเกมจับคู่ระบบสืบพันธุ์</h2>
+          <span class="panel-tag panel-tag-blue">แบบการ์ด</span>
+        </div>
+        <p class="match-desc">
+          คลิกการ์ดเพื่อจับคู่ "รูป" ของอวัยวะสืบพันธุ์กับ "ความหมาย" เมื่อจับคู่ครบทุกใบถือว่าชนะ
+        </p>
+        <div class="match-controls">
+          <button id="resetMatchBtn" class="btn btn-secondary small">เริ่มใหม่</button>
+          <span id="matchStatus" class="match-status">พลิกการ์ดเพื่อเริ่มเล่น</span>
+        </div>
+        <div id="matchGrid" class="match-grid"></div>
+      </section>
+
+      <section class="panel blood-panel hidden" id="bloodGamePanel">
+        <div class="panel-header">
+          <h2>🩸 เกมลูกแก้วระบบไหลเวียนเลือด</h2>
+          <span class="panel-tag panel-tag-blue">คำถาม</span>
+        </div>
+        <p class="blood-desc">
+          คุณเป็นเม็ดเลือดแดงที่กำลังเดินทางจากปอดไปส่วนต่างๆ ของร่างกาย สุ่มลูกแก้วเพื่อเผชิญสถานการณ์และตอบคำถาม!
+        </p>
+        
+        <div class="blood-stats-bar">
+          <div class="blood-stat-item">
+            <span class="stat-label">สถานะผู้ป่วย</span>
+            <span id="bloodPatientStatus" class="stat-value">ดี</span>
+          </div>
+          <div class="blood-stat-item">
+            <span class="stat-label">ตำแหน่งปัจจุบัน</span>
+            <span id="bloodCurrentLocation" class="stat-value">ปอด</span>
+          </div>
+        </div>
+
+        <div class="blood-game-area">
+          <div class="blood-marbles-container">
+            <div class="blood-marble red" id="redMarble" data-type="arterial">
+              <div class="marble-content">
+                <div class="marble-icon">🔴</div>
+                <div class="marble-label">เลือดแดง<br/>(Arterial)</div>
+              </div>
+            </div>
+            <div class="blood-marble blue" id="blueMarble" data-type="venous">
+              <div class="marble-content">
+                <div class="marble-icon">🔵</div>
+                <div class="marble-label">เลือดน้ำเงิน<br/>(Venous)</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="blood-question-area" id="bloodQuestionArea">
+            <div class="blood-situation" id="bloodSituation">
+              คลิกลูกแก้วเพื่อเริ่มเกม!
+            </div>
+            <div class="blood-question" id="bloodQuestion" style="display: none;"></div>
+            <div class="blood-answers" id="bloodAnswers" style="display: none;"></div>
+            <div class="blood-feedback" id="bloodFeedback" style="display: none;"></div>
+          </div>
+        </div>
+
+        <div class="blood-controls">
+          <button id="resetBloodBtn" class="btn btn-secondary small">เริ่มใหม่</button>
+          <button id="nextMarbleBtn" class="btn btn-secondary small" style="display: none;">สุ่มลูกแก้วถัดไป</button>
+        </div>
+      </section>
+
+      <section class="panel breath-panel hidden" id="breathGamePanel">
+        <div class="panel-header">
+          <h2>🫁 เกมควิซระบบหายใจ</h2>
+          <span class="panel-tag panel-tag-blue">3 โหมด</span>
+        </div>
+        
+        <div class="breath-mode-selector">
+          <button class="breath-mode-btn active" data-mode="diagnosis">👨‍⚕️ โหมดแพทย์ฝึกหัด</button>
+          <button class="breath-mode-btn" data-mode="matching">🔗 จับคู่โรคกับอาการ</button>
+          <button class="breath-mode-btn" data-mode="timed">⏱️ แข่งกับเวลา</button>
+        </div>
+
+        <!-- โหมดแพทย์ฝึกหัด -->
+        <div class="breath-mode-content" id="breathDiagnosisMode">
+          <p class="breath-desc">คุณเป็นแพทย์ที่ต้องวินิจฉัยอาการผู้ป่วย เลือกคำถามและคำตอบที่เหมาะสม</p>
+          <div class="breath-stats">
+            <span>ผู้ป่วยที่รักษา: <span id="breathPatientsCured">0</span></span>
+            <span>ความแม่นยำ: <span id="breathAccuracy">100%</span></span>
+          </div>
+          <div class="breath-patient-case" id="breathPatientCase">
+            <div class="patient-info">
+              <h3>ผู้ป่วยรายใหม่</h3>
+              <p id="breathPatientSymptoms">กำลังโหลด...</p>
+            </div>
+            <div class="breath-questions-area">
+              <h4>เลือกคำถามที่ต้องการถาม:</h4>
+              <div id="breathQuestionOptions" class="breath-options"></div>
+            </div>
+            <div class="breath-answers-area" id="breathAnswersArea" style="display: none;">
+              <h4>เลือกแนวทางการรักษา:</h4>
+              <div id="breathTreatmentOptions" class="breath-options"></div>
+            </div>
+            <div class="breath-feedback" id="breathFeedback" style="display: none;"></div>
+          </div>
+          <button id="breathNextPatientBtn" class="btn btn-secondary small" style="display: none;">ผู้ป่วยรายถัดไป</button>
+        </div>
+
+        <!-- โหมดจับคู่ -->
+        <div class="breath-mode-content hidden" id="breathMatchingMode">
+          <p class="breath-desc">จับคู่ภาพอาการกับชื่อโรคที่ถูกต้อง</p>
+          <div class="breath-stats">
+            <span>จับคู่ได้: <span id="breathMatchesFound">0</span>/<span id="breathTotalMatches">0</span></span>
+            <span>คะแนน: <span id="breathMatchScore">0</span></span>
+          </div>
+          <div id="breathMatchGrid" class="breath-match-grid"></div>
+          <button id="breathResetMatchBtn" class="btn btn-secondary small">เริ่มใหม่</button>
+        </div>
+
+        <!-- โหมดแข่งกับเวลา -->
+        <div class="breath-mode-content hidden" id="breathTimedMode">
+          <p class="breath-desc">ตอบคำถามให้เร็วที่สุดเพื่อสูบอากาศเข้าไปในถังออกซิเจน!</p>
+          <div class="breath-timed-stats">
+            <div class="oxygen-tank">
+              <div class="tank-label">ถังออกซิเจน</div>
+              <div class="tank-container">
+                <div class="tank-fill" id="tankFill" style="height: 0%;"></div>
+                <div class="tank-percentage" id="tankPercentage">0%</div>
+              </div>
+            </div>
+            <div class="timed-stats">
+              <span>เวลาที่เหลือ: <span id="breathTimeLeft">60</span> วินาที</span>
+              <span>คำถามที่ตอบ: <span id="breathQuestionsAnswered">0</span></span>
+            </div>
+          </div>
+          <div class="breath-timed-question-area">
+            <div class="breath-timed-question" id="breathTimedQuestion"></div>
+            <div class="breath-timed-answers" id="breathTimedAnswers"></div>
+          </div>
+          <button id="breathStartTimedBtn" class="btn btn-secondary">เริ่มเกม</button>
+          <button id="breathResetTimedBtn" class="btn btn-secondary small" style="display: none;">เริ่มใหม่</button>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>เกมต้นแบบเพื่อการเรียนรู้ระบบย่อยอาหารและสารอาหาร (ม.5)</p>
+    </footer>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
