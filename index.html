@@ -10,40 +10,26 @@
 
   <div class="game-frame">
     <header class="game-header">
-      <div class="game-logo">🍽️</div>
+      <div class="game-logo">🔬</div>
       <div>
-        <h1>ขุมทรัพย์สารอาหาร</h1>
-        <p class="subtitle">ผจญภัยในระบบย่อยอาหาร เก็บสารอาหารแลกไอเทมสุดเทพ!</p>
+        <h1>Biologist</h1>
+        <p class="subtitle">สำรวจระบบของร่างกายมนุษย์ผ่านเกมมินิเหล่านี้</p>
       </div>
     </header>
 
     <section class="lobby" id="lobbySection">
       <div class="lobby-title">เลือกโหมดการเล่น</div>
       <div class="lobby-actions">
-        <button id="lobbyMainBtn" class="btn small">🪓 เกมขุดสารอาหาร</button>
-        <button id="lobbyMatchBtn" class="btn small btn-ghost">🧩 มินิเกมจับคู่ระบบสืบพันธุ์</button>
+        <button id="lobbyMatchBtn" class="btn small">🧩 มินิเกมจับคู่ระบบสืบพันธุ์</button>
         <button id="lobbyBloodBtn" class="btn small btn-ghost">🩸 มินิเกมระบบไหลเวียนเลือด</button>
         <button id="lobbyBreathBtn" class="btn small btn-ghost">🫁 มินิเกมระบบหายใจ</button>
       </div>
     </section>
 
-    <section class="status-bar" id="statusBar">
-      <div class="status-pill" id="statusOrgan">
-        <span class="label">อวัยวะ</span>
-        <span id="organName" class="value">ปาก</span>
-      </div>
-      <div class="status-pill" id="statusCoins">
-        <span class="label">เหรียญสารอาหาร</span>
-        <span id="coins" class="value">0</span>
-      </div>
-      <div class="status-pill" id="statusShovel">
-        <span class="label">ระดับจอบ</span>
-        <span id="shovelLevel" class="value">1</span>
-      </div>
-    </section>
+    <section class="status-bar" id="statusBar" style="display: none;"></section>
 
     <main class="content">
-      <section class="panel grid-section" id="mainGamePanel">
+      <section class="panel grid-section" id="mainGamePanel" style="display: none;">
         <div class="panel-header">
           <h2>พื้นที่ขุดสารอาหาร</h2>
           <span class="panel-tag">ระบบย่อยอาหาร</span>
@@ -54,7 +40,7 @@
         </button>
       </section>
 
-      <section class="panel info-section" id="shopInfoPanel">
+      <section class="panel info-section" id="shopInfoPanel" style="display: none;">
         <div class="panel-header">
           <h2>ข้อมูล & ร้านค้า</h2>
           <span class="panel-tag panel-tag-blue">ความรู้</span>
