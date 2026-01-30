@@ -149,7 +149,6 @@ const MAX_DEPTH = 4;
 
 let currentOrganIndex = 0;
 let coins = 0;
-let shovelLevel = 1;
 let radarOwned = false;
 let instantDigOwned = true;
 let gridData = [];
@@ -883,10 +882,8 @@ let breathTimedInterval = null;
 const gridEl = document.getElementById("grid");
 const organNameEl = document.getElementById("organName");
 const coinsEl = document.getElementById("coins");
-const shovelLevelEl = document.getElementById("shovelLevel");
 const infoBoxEl = document.getElementById("infoBox");
 const nextOrganBtn = document.getElementById("nextOrganBtn");
-const buyShovelBtn = document.getElementById("buyShovel");
 const buyRadarBtn = document.getElementById("buyRadar");
 const matchGrid = document.getElementById("matchGrid");
 const matchStatusEl = document.getElementById("matchStatus");
@@ -927,25 +924,12 @@ function init() {
   createGrid();
   showOrganIntro();
   attachShopEvents();
-  updateShovelButtonState();
   initMatchGame();
   initBloodMarbleGame();
   initBreathGame();
   initLobbySwitch();
 }
 
-function updateShovelButtonState() {
-  // อัปเดตสถานะปุ่มจอบตามระดับปัจจุบัน
-  if (shovelLevel >= 20) {
-    buyShovelBtn.disabled = true;
-    buyShovelBtn.innerHTML = `
-      🪓 จอบระดับสูงสุด (20)
-      <span class="btn-subtext">ได้ฟีเจอร์ขุดคลิกเดียวแล้ว! ไม่สามารถอัปเกรดได้อีก</span>
-    `;
-  }
-}
-
-// ---------- มินิเกมจับคู่ระบบสืบพันธุ์ ----------
 function initMatchGame() {
   if (!matchGrid || !resetMatchBtn || !matchStatusEl) return;
   resetMatchBtn.addEventListener("click", resetMatchGame);
@@ -1826,7 +1810,6 @@ function togglePanel(el, show) {
 function updateStatusBar() {
   organNameEl.textContent = organs[currentOrganIndex].name;
   coinsEl.textContent = coins;
-  shovelLevelEl.textContent = shovelLevel;
 }
 
 function createGrid() {
@@ -1842,7 +1825,7 @@ function createGrid() {
       cell.dataset.index = cellIndex;
 
       const rand = Math.random();
-      const baseGoodChance = 0.35 + shovelLevel * 0.05 - organ.difficulty;
+      const baseGoodChance = 0.35 - organ.difficulty;
       const goodChance = Math.max(0.1, Math.min(0.8, baseGoodChance));
       const badChance = 0.15 + organ.difficulty;
 
@@ -1853,7 +1836,7 @@ function createGrid() {
         cellType = "bad";
       }
 
-      const depthRandomFactor = Math.max(0.5, 1.1 - shovelLevel * 0.05);
+      const depthRandomFactor = 1.0;
       const randomDepth =
         MIN_DEPTH +
         Math.floor(
@@ -1873,7 +1856,7 @@ function createGrid() {
       cell.textContent = "";
 
       // ระบบขุด: ถ้าซื้อ instantDig หรือระดับจอบถึง 20 แล้วจะคลิกเดียวได้เลย
-      if (instantDigOwned || shovelLevel >= 20) {
+      if (instantDigOwned) {
         cell.addEventListener("click", () => performInstantDig(cellIndex));
       } else {
         // ระบบกดค้าง 3 วินาที (รองรับการกดค้างต่อเนื่อง)
@@ -2135,48 +2118,8 @@ function attachShopEvents() {
     showOrganIntro();
   });
 
-  buyShovelBtn.addEventListener("click", () => {
-    const cost = 30;
-    
-    // ตรวจสอบว่าถึงเลเวลสูงสุดแล้วหรือยัง
-    if (shovelLevel >= 20) {
-      playClickSound();
-      showShopMessage("จอบถึงระดับสูงสุดแล้ว (ระดับ 20) ไม่สามารถอัปเกรดได้อีก");
-      buyShovelBtn.disabled = true;
-      return;
-    }
-    
-    if (coins < cost) {
-      playClickSound();
-      showShopMessage("เหรียญไม่พอสำหรับอัปเกรดจอบ");
-      return;
-    }
-    
-    playPurchaseSound();
-    coins -= cost;
-    shovelLevel++;
-    updateStatusBar();
-    createGrid();
-    
-    // ตรวจสอบว่าถึงเลเวล 20 แล้วหรือยัง
-    if (shovelLevel >= 20) {
-      buyShovelBtn.disabled = true;
-      buyShovelBtn.innerHTML = `
-        🪓 จอบระดับสูงสุด (20)
-        <span class="btn-subtext">ได้ฟีเจอร์ขุดคลิกเดียวแล้ว! ไม่สามารถอัปเกรดได้อีก</span>
-      `;
-      showShopMessage(
-        `อัปเกรดจอบเป็นระดับ 20 แล้ว! จอบถึงระดับสูงสุดและคุณสามารถขุดได้โดยคลิกเพียงครั้งเดียว (ไม่ต้องกดค้าง)`
-      );
-    } else {
-      showShopMessage(
-        `อัปเกรดจอบเป็นระดับ ${shovelLevel} แล้ว! จำนวนชั้นดินโดยรวมลดลง ทำให้ขุดทะลุได้ด้วยการกดค้างน้อยครั้งลง${shovelLevel >= 19 ? ' (ใกล้ถึงระดับสูงสุดแล้ว)' : ''}`
-      );
-    }
-  });
-
   buyRadarBtn.addEventListener("click", () => {
-    const cost = 20;
+    const cost = 1000;
     if (radarOwned) {
       playClickSound();
       showShopMessage("คุณมีเรดาร์อยู่แล้ว");
