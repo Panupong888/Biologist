@@ -494,9 +494,9 @@ const venousQuestions = [
   {
     situation: "คุณเดินทางผ่านปอด แลกเปลี่ยนก๊าซด้านข้างอื่นของหัวใจ",
     question: "ปอดซ้ายและปอดขวามีความแตกต่างอะไร?",
-    answers: ["ปอดซ้ายมี 2 葉 ปอดขวามี 3 葉 (Left: 2 lobes, Right: 3 lobes)", "ปอดขวามี 2 葉 ปอดซ้ายมี 3 葉 (Right: 2 lobes, Left: 3 lobes)", "ปอดทั้งคู่มี 3 葉 (Both have 3 lobes)", "ไม่มีความแตกต่าง (No difference)"],
+    answers: ["ปอดซ้ายมี 2 ส่วน ปอดขวามี 3 ส่วน (Left: 2 lobes, Right: 3 lobes)", "ปอดขวามี 2 ส่วน ปอดซ้ายมี 3 ส่วน (Right: 2 lobes, Left: 3 lobes)", "ปอดทั้งคู่มี 3 ส่วน (Both have 3 lobes)", "ไม่มีความแตกต่าง (No difference)"],
     correct: 0,
-    explanation: "ปอดซ้ายมี 2 葉 เพื่อให้ที่ว่างสำหรับหัวใจ ส่วนปอดขวามี 3 葉 เพราะไม่มีหัวใจ"
+    explanation: "ปอดซ้ายมี 2 ส่วน เพื่อให้ที่ว่างสำหรับหัวใจ ส่วนปอดขวามี 3 ส่วน เพราะไม่มีหัวใจ"
   },
   {
     situation: "คุณกำลังเดินทางเข้าไปในการไหลเวียนเลือดฝอยในกล้ามเนื้อ",
@@ -619,7 +619,7 @@ const diagnosisQuestions = [
   {
     situation: "ผู้ป่วยมีอาการบวมที่ขาและเท้า หายใจลำบากเมื่อนอนราบ",
     question: "คุณคิดว่าน่าจะเป็นโรคอะไร?",
-    answers: ["โรคหัวใจล้มเหลว (Heart Failure)", "โรคไต", "โรคตับ", "โรคเบาหวาน"],
+    answers: ["โรคหัวใจล้มเหลว (Heart Failure)", "โรคไต (Kidney Disease)", "โรคตับ (Liver Disease)", "โรคเบาหวาน (Diabetes)"],
     correct: 0,
     explanation: "อาการบวมที่ขาและเท้า หายใจลำบากเมื่อนอนราบเป็นอาการของโรคหัวใจล้มเหลว เกิดจากหัวใจไม่สามารถสูบฉีดเลือดได้อย่างมีประสิทธิภาพ",
     patientImpact: -20
@@ -627,7 +627,7 @@ const diagnosisQuestions = [
   {
     situation: "ผู้ป่วยมีอาการปวดศีรษะรุนแรง แขนขาอ่อนแรงข้างหนึ่ง และพูดไม่ชัด",
     question: "คุณคิดว่าน่าจะเป็นโรคอะไร?",
-    answers: ["โรคหลอดเลือดสมอง (Stroke)", "โรคไมเกรน", "โรคความดันโลหิตสูง", "โรคเบาหวาน"],
+    answers: ["โรคหลอดเลือดสมอง (Stroke)", "โรคไมเกรน (Migraine)", "โรคความดันโลหิตสูง (Hypertension)", "โรคเบาหวาน (Diabetes)"],
     correct: 0,
     explanation: "อาการปวดศีรษะรุนแรง แขนขาอ่อนแรงข้างหนึ่ง และพูดไม่ชัดเป็นอาการของโรคหลอดเลือดสมอง เกิดจากการอุดตันหรือแตกของหลอดเลือดในสมอง",
     patientImpact: -25
@@ -635,7 +635,7 @@ const diagnosisQuestions = [
   {
     situation: "ผู้ป่วยมีอาการเจ็บหน้าอกเมื่อออกกำลังกาย แต่หายเมื่อพัก",
     question: "คุณคิดว่าน่าจะเป็นโรคอะไร?",
-    answers: ["โรคหลอดเลือดหัวใจตีบ (Angina)", "โรคปอด", "โรคกล้ามเนื้อ", "โรคกระดูก"],
+    answers: ["โรคหลอดเลือดหัวใจตีบ (Angina)", "โรคปอด (Lung Disease)", "โรคกล้ามเนื้อ (Muscle Disease)", "โรคกระดูก (Bone Disease)"],
     correct: 0,
     explanation: "อาการเจ็บหน้าอกเมื่อออกกำลังกายแต่หายเมื่อพักเป็นอาการของโรคหลอดเลือดหัวใจตีบ เกิดจากการไหลเวียนเลือดไปเลี้ยงหัวใจไม่เพียงพอ",
     patientImpact: -12
@@ -893,7 +893,7 @@ const shopInfoPanel = document.getElementById("shopInfoPanel");
 const matchGamePanel = document.getElementById("matchGamePanel");
 const bloodGamePanel = document.getElementById("bloodGamePanel");
 const bloodPatientStatusEl = document.getElementById("bloodPatientStatus");
-const bloodCurrentLocationEl = document.getElementById("bloodCurrentLocation");
+
 const bloodSituationEl = document.getElementById("bloodSituation");
 const bloodQuestionEl = document.getElementById("bloodQuestion");
 const bloodAnswersEl = document.getElementById("bloodAnswers");
@@ -1276,7 +1276,7 @@ function handleAnswer(selectedIndex) {
 }
 
 function updateBloodUI() {
-  if (bloodCurrentLocationEl) bloodCurrentLocationEl.textContent = bloodCurrentLocation;
+
   
   if (bloodPatientStatusEl) {
     let statusText = "ดี";
