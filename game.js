@@ -93,52 +93,52 @@ const reproductionPairs = [
   {
     name: "อัณฑะ (Testis)",
     meaning: "ผลิตอสุจิและฮอร์โมนเทสโทสเทอโรน ควบคุมลักษณะเพศชาย",
-    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Figure_28_01_03.JPG/500px-Figure_28_01_03.JPG",
+    imageUrl: "https://i.ibb.co/SX0yGn0h/image.jpg",
   },
   {
     name: "หลอดนำอสุจิ (Vas deferens)",
     meaning: "ท่อนำอสุจิจากอัณฑะสู่ท่อปัสสาวะ เตรียมผสมกับน้ำเลี้ยง",
-    imageUrl: "https://health.campus-star.com/app/uploads/2015/06/%E0%B8%AD%E0%B8%AA%E0%B8%B8%E0%B8%88%E0%B8%B41.gif",
+    imageUrl: "https://i.ibb.co/HfMZmWnD/image.jpg",
   },
   {
-    name: "ถุงน้ำเลี้ยง (Seminal vesicle)",
+    name: "ต่อมสร้างน้ำเลี้ยงอสุจิ (Seminal vesicle)",
     meaning: "สร้างน้ำเลี้ยงที่มีฟรักโทสเป็นพลังงานให้อสุจิ และสร้างสารทำให้อสุจิเคลื่อนที่ได้ดี",
-    imageUrl: "https://static.cdntap.com/tap-assets-prod/wp-content/uploads/sites/25/2023/06/hydrocele-in-children1.png?width=700&quality=95",
+    imageUrl: "https://i.ibb.co/zhqpYJ5H/image.jpg",
   },
   {
     name: "ต่อมลูกหมาก (Prostate gland)",
     meaning: "หลั่งสารหล่อลื่นและสารปรับสมดุลความเป็นกรด-ด่าง ช่วยให้อสุจิมีชีวิตรอดในช่องคลอด",
-    imageUrl: "https://media.istockphoto.com/id/2116867114/th/%E0%B9%80%E0%B8%A7%E0%B8%84%E0%B9%80%E0%B8%95%E0%B8%AD%E0%B8%A3%E0%B9%8C/%E0%B8%A0%E0%B8%B2%E0%B8%9E%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%81%E0%B8%AD%E0%B8%9A%E0%B8%97%E0%B8%B2%E0%B8%87%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B9%81%E0%B8%9E%E0%B8%97%E0%B8%A2%E0%B9%8C%E0%B8%82%E0%B8%AD%E0%B8%87%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B8%A1%E0%B8%A5%E0%B8%B9%E0%B8%81%E0%B8%AB%E0%B8%A1%E0%B8%B2%E0%B8%81%E0%B9%82%E0%B8%95%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B9%84%E0%B8%A1%E0%B9%88%E0%B9%80%E0%B8%9B%E0%B9%87%E0%B8%99%E0%B8%9E%E0%B8%B4%E0%B8%A9%E0%B9%80%E0%B8%9B%E0%B9%87%E0%B8%99%E0%B8%A0%E0%B8%B1%E0%B8%A2%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B8%A1%E0%B8%A5%E0%B8%B9%E0%B8%81%E0%B8%AB%E0%B8%A1%E0%B8%B2%E0%B8%81%E0%B8%9B%E0%B8%81%E0%B8%95%E0%B8%B4%E0%B8%81%E0%B8%B1%E0%B8%9A%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B8%A1%E0%B8%A5%E0%B8%B9%E0%B8%81%E0%B8%AB%E0%B8%A1%E0%B8%B2%E0%B8%81.jpg?s=2048x2048&w=is&k=20&c=Lud9-JAeug0YIoUPlLlMQCvjV3p31CpzpT33LDhOrj4=",
+    imageUrl: "https://i.ibb.co/wkqBk0r/image.jpg",
   },
   {
     name: "ท่อปัสสาวะ (Urethra)",
     meaning: "ทางผ่านของปัสสาวะและน้ำอสุจิ แต่ไม่เกิดพร้อมกัน ระบบสั่งงานแยกกัน",
-    imageUrl: "https://media.istockphoto.com/id/2148671007/th/%E0%B9%80%E0%B8%A7%E0%B8%84%E0%B9%80%E0%B8%95%E0%B8%AD%E0%B8%A3%E0%B9%8C/%E0%B8%81%E0%B8%B2%E0%B8%A2%E0%B8%A7%E0%B8%B4%E0%B8%A0%E0%B8%B2%E0%B8%84%E0%B8%82%E0%B8%AD%E0%B8%87%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%9A%E0%B8%97%E0%B8%B2%E0%B8%87%E0%B9%80%E0%B8%94%E0%B8%B4%E0%B8%99%E0%B8%9B%E0%B8%B1%E0%B8%AA%E0%B8%AA%E0%B8%B2%E0%B8%A7%E0%B8%B0-%E0%B8%A0%E0%B8%B2%E0%B8%9E%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%81%E0%B8%AD%E0%B8%9A%E0%B9%80%E0%B8%A7%E0%B8%81%E0%B9%80%E0%B8%95%E0%B8%AD%E0%B8%A3%E0%B9%8C.jpg?s=2048x2048&w=is&k=20&c=cvxOkuqUZkCyb6PouyZLXQ_Ojwv_-ia1EH0hnDYBeyc=",
+    imageUrl: "https://i.ibb.co/0jWFXNjS/image.jpg",
   },
   {
     name: "รังไข่ (Ovary)",
     meaning: "สร้างไข่และฮอร์โมนเอสโตรเจน/โปรเจสเทอโรน ควบคุมรอบเดือนและการตั้งครรภ์",
-    imageUrl: "https://d8goewwfyuge4.cloudfront.net/web_5303/367bb0c88bcb24e0bb599f9e57d1d95ce0b98718.png",
+    imageUrl: "https://i.ibb.co/gF7sScDC/image.jpg",
   },
   {
     name: "ท่อนำไข่ (Fallopian tube)",
     meaning: "ที่อยู่ของการปฏิสนธิ ไข่และอสุจิพบกันบริเวณแอมพูลลาของท่อนำไข่",
-    imageUrl: "https://w1.med.cmu.ac.th/obgyn/files/2023/05/word-image-50305-1.jpeg",
+    imageUrl: "https://i.ibb.co/zhLc39Dr/image.jpg",
   },
   {
     name: "มดลูก (Uterus)",
     meaning: "ผนังมดลูกหนานุ่มสำหรับฝังตัวของตัวอ่อน และเป็นที่เจริญเติบโตระหว่างตั้งครรภ์",
-    imageUrl: "https://media.istockphoto.com/id/1159291550/th/%E0%B9%80%E0%B8%A7%E0%B8%84%E0%B9%80%E0%B8%95%E0%B8%AD%E0%B8%A3%E0%B9%8C/%E0%B8%A1%E0%B8%94%E0%B8%A5%E0%B8%B9%E0%B8%81%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B9%8C%E0%B8%95%E0%B8%B9%E0%B8%99%E0%B8%99%E0%B9%88%E0%B8%B2%E0%B8%A3%E0%B8%B1%E0%B8%81.jpg?s=2048x2048&w=is&k=20&c=4Qj8sjXN57rxS9F96X2PmiTvxAAiY3CBU9TRNUDrfpo=",
+    imageUrl: "https://i.ibb.co/bjfctZ94/image.jpg",
   },
   {
     name: "ปากมดลูก (Cervix)",
     meaning: "ช่องเปิดระหว่างมดลูกกับช่องคลอด มีมูกช่วยป้องกันเชื้อโรคและปรับความเป็นกรด-ด่าง",
-    imageUrl: "https://media.istockphoto.com/id/1290065010/th/%E0%B9%80%E0%B8%A7%E0%B8%84%E0%B9%80%E0%B8%95%E0%B8%AD%E0%B8%A3%E0%B9%8C/%E0%B8%AA%E0%B8%B8%E0%B8%82%E0%B8%AA%E0%B8%B1%E0%B8%99%E0%B8%95%E0%B9%8C%E0%B8%A7%E0%B8%B1%E0%B8%99%E0%B8%AA%E0%B8%95%E0%B8%A3%E0%B8%B5%E0%B8%AA%E0%B8%B2%E0%B8%81%E0%B8%A5%E0%B9%81%E0%B8%99%E0%B8%A7%E0%B8%84%E0%B8%B4%E0%B8%94%E0%B8%AA%E0%B8%95%E0%B8%A3%E0%B8%B5%E0%B8%99%E0%B8%B4%E0%B8%A2%E0%B8%A1-%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1%E0%B8%87%E0%B8%B2%E0%B8%A1%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%AA%E0%B8%94%E0%B9%83%E0%B8%AA%E0%B8%AA%E0%B8%B2%E0%B8%A7%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B9%81%E0%B8%95%E0%B8%81%E0%B8%95%E0%B9%88%E0%B8%B2%E0%B8%87%E0%B8%81%E0%B8%B1%E0%B8%99%E0%B8%AA%E0%B8%99%E0%B8%B1%E0%B8%9A%E0%B8%AA%E0%B8%99%E0%B8%B8%E0%B8%99%E0%B8%A1%E0%B8%94%E0%B8%A5%E0%B8%B9%E0%B8%81%E0%B8%A3%E0%B8%B1%E0%B8%87%E0%B9%84%E0%B8%82%E0%B9%88%E0%B8%AB%E0%B8%8D%E0%B8%B4.jpg?s=2048x2048&w=is&k=20&c=GImVTb15spXg1HStjzYi4lpz_ihDTgTIQBLyLUkEHyU=",
+    imageUrl: "https://i.ibb.co/kNb4qjh/image.jpg",
   },
   {
     name: "ช่องคลอด (Vagina)",
     meaning: "ทางเข้าสู่ระบบสืบพันธุ์เพศหญิง รับอสุจิระหว่างการสืบพันธุ์และเป็นช่องคลอดระหว่างคลอด",
-    imageUrl: "https://media.istockphoto.com/id/1239766676/th/%E0%B9%80%E0%B8%A7%E0%B8%84%E0%B9%80%E0%B8%95%E0%B8%AD%E0%B8%A3%E0%B9%8C/%E0%B9%84%E0%B8%AD%E0%B8%84%E0%B8%AD%E0%B8%99%E0%B9%80%E0%B8%AA%E0%B9%89%E0%B8%99%E0%B8%8A%E0%B9%88%E0%B8%AD%E0%B8%87%E0%B8%84%E0%B8%A5%E0%B8%AD%E0%B8%94%E0%B8%82%E0%B8%AD%E0%B8%87%E0%B8%A1%E0%B8%99%E0%B8%B8%E0%B8%A9%E0%B8%A2%E0%B9%8C.jpg?s=2048x2048&w=is&k=20&c=rVmTMZAjB069ZRO4d8hpfouNj7QvpozKbflgoHO3JKI=",
+    imageUrl: "https://i.ibb.co/SXhPzTqK/image.jpg",
   },
 ];
 
